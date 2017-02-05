@@ -1,11 +1,10 @@
 'use strict';
 const log = require('winston');
 const AlexaSkill = require('src/client/AlexaSkill');
-const LaunchIntent = require('src/intents/launch-intent.js');
 
 let APP_ID;
 
-const MeetJsSkill = function () {
+const MeetJSSkill = function () {
 	AlexaSkill.call(this, APP_ID);
 };
 
@@ -20,7 +19,7 @@ MeetJSSkill.prototype.eventHandlers.onSessionStarted = function (sessionStartedR
 };
 
 MeetJSSkill.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
-	LaunchIntent.do(session, response);
+	response.tell(`Hello World`);
 };
 
 MeetJSSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedRequest, session) {
@@ -32,7 +31,7 @@ MeetJSSkill.prototype.eventHandlers.onSessionEnded = function (sessionEndedReque
 // Create the handler that responds to the Alexa Request.
 exports.handler = function (event, context) {
     // Create an instance of the MeetJSSkill skill.
-    const MeetJSSkill = new MeetJSSkill();
-    MeetJSSkill.execute(event, context);
+    const MeetJSSkillHandler = new MeetJSSkill();
+    MeetJSSkillHandler.execute(event, context);
 };
 
