@@ -159,9 +159,13 @@ Response.prototype = (function () {
 
 	return {
 		tellWithSSML (speechOutput) {
+
 			this._context.succeed(buildSpeechletResponse({
 				session: this._session,
-				output: speechOutput,
+				output: {
+					speech: `<speak>${speechOutput}</speak>`,
+					type: 'SSML'
+				},
 				shouldEndSession: true
 			}));
 		},

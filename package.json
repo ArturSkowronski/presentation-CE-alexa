@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "twitter": "1.7.0",
     "winston": "2.3.1"
   }
 }
